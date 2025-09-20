@@ -26,6 +26,9 @@ import Pricing from "./pages/Pricing";
 import Promotions from "./pages/Promotions";
 import CreatePromotion from "./pages/CreatePromotion";
 import Settings from "./pages/Settings";
+import CorporateDashboard from "./pages/CorporateDashboard";
+import LabDashboard from "./pages/LabDashboard";
+import PharmacyDashboard from "./pages/PharmacyDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -58,6 +61,9 @@ const App = () => (
             <Route path="/promotions" element={<Promotions />} />
             <Route path="/promotions/create" element={<CreatePromotion />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/corporate-dashboard" element={<CorporateDashboard />} />
+            <Route path="/lab-dashboard" element={<LabDashboard />} />
+            <Route path="/pharmacy-dashboard" element={<PharmacyDashboard />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

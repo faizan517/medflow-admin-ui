@@ -7,67 +7,71 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222 84% 5%;
+    --foreground: 220 14% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 84% 5%;
+    --card-foreground: 220 14% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 84% 5%;
+    --popover-foreground: 220 14% 11%;
 
-    /* Healthcare Purple Theme */
-    --primary: 262 83% 58%;
-    --primary-foreground: 0 0% 98%;
-    --primary-hover: 262 83% 52%;
+    /* Brand Primary Colors - Blue, White, Black */
+    --primary: 218 100% 50%;  /* Mentor Blue #0048FF */
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 218 100% 45%;
 
     --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary-foreground: 220 14% 11%;
 
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
 
     --accent: 210 40% 96%;
-    --accent-foreground: 222 47% 11%;
+    --accent-foreground: 220 14% 11%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 69% 67%;  /* Brand Red #FF5151 */
     --destructive-foreground: 0 0% 98%;
 
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 262 83% 58%;
+    --ring: 218 100% 50%;
 
     --radius: 0.5rem;
 
-    /* Healthcare Status Colors */
-    --success: 142 76% 36%;
+    /* Brand Secondary Colors */
+    --success: 160 50% 65%;    /* Brand Green #6BDFAB */
     --success-foreground: 0 0% 98%;
-    --warning: 38 92% 50%;
-    --warning-foreground: 0 0% 98%;
-    --info: 221 83% 53%;
+    --warning: 47 100% 72%;    /* Brand Yellow #F4F070 */
+    --warning-foreground: 220 14% 11%;
+    --info: 239 100% 78%;      /* Brand Violet #8F91FF */
     --info-foreground: 0 0% 98%;
+    --orange: 13 100% 63%;     /* Brand Orange #FF6F43 */
+    --orange-foreground: 0 0% 98%;
+    --pink: 339 100% 51%;      /* Brand Pink #FF0569 */
+    --pink-foreground: 0 0% 98%;
 
-    /* Sidebar Healthcare Theme */
-    --sidebar-background: 262 83% 58%;
+    /* Sidebar Theme - Using Brand Blue */
+    --sidebar-background: 218 100% 50%;
     --sidebar-foreground: 0 0% 98%;
     --sidebar-primary: 0 0% 98%;
-    --sidebar-primary-foreground: 262 83% 58%;
-    --sidebar-accent: 262 83% 52%;
+    --sidebar-primary-foreground: 218 100% 50%;
+    --sidebar-accent: 218 100% 45%;
     --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 262 83% 52%;
+    --sidebar-border: 218 100% 45%;
     --sidebar-ring: 0 0% 98%;
 
-    /* Healthcare Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(262 83% 58%), hsl(262 83% 52%));
-    --gradient-sidebar: linear-gradient(180deg, hsl(262 83% 58%), hsl(262 83% 52%));
+    /* Brand Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(218 100% 50%), hsl(218 100% 45%));
+    --gradient-sidebar: linear-gradient(180deg, hsl(218 100% 50%), hsl(218 100% 45%));
     --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(210 40% 98%));
 
-    /* Healthcare Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(262 83% 58% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(262 83% 58% / 0.1);
-    --shadow-lg: 0 10px 15px -3px hsl(262 83% 58% / 0.1);
-    --shadow-xl: 0 20px 25px -5px hsl(262 83% 58% / 0.1);
+    /* Brand Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(218 100% 50% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(218 100% 50% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(218 100% 50% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(218 100% 50% / 0.1);
 
-    /* Healthcare Animations */
+    /* Brand Animations */
     --transition-all: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-colors: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
   }

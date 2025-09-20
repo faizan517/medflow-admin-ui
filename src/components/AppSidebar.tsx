@@ -24,6 +24,24 @@ const menuItems = [
     group: "Overview"
   },
   {
+    title: "Corporate Dashboard",
+    url: "/corporate-dashboard",
+    icon: Building2,
+    group: "Overview"
+  },
+  {
+    title: "Lab Dashboard",
+    url: "/lab-dashboard",
+    icon: TestTube,
+    group: "Overview"
+  },
+  {
+    title: "Pharmacy Dashboard",
+    url: "/pharmacy-dashboard",
+    icon: Pill,
+    group: "Overview"
+  },
+  {
     title: "Internal User Management", 
     url: "/users",
     icon: Users,
