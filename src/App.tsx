@@ -2,8 +2,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import { Layout } from "@/components/Layout";
+import Login from "./pages/Login";
 
 // Pages
 import Dashboard from "./pages/Dashboard";
@@ -29,9 +31,20 @@ import Settings from "./pages/Settings";
 import CorporateDashboard from "./pages/CorporateDashboard";
 import LabDashboard from "./pages/LabDashboard";
 import PharmacyDashboard from "./pages/PharmacyDashboard";
+import InsuranceCorporateDashboard from "./pages/InsuranceCorporateDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
+  const { isAuthenticated } = useAuth();
+  
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+  
+  return <>{children}</>;
+}
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -39,35 +52,47 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Layout>
+        <AuthProvider>
           <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/users" element={<Users />} />
-            <Route path="/roles" element={<Roles />} />
-            <Route path="/customers" element={<Customers />} />
-            <Route path="/doctors" element={<Doctors />} />
-            <Route path="/medical-staff" element={<MedicalStaff />} />
-            <Route path="/healthcare" element={<Healthcare />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/orders/:id" element={<OrderDetails />} />
-            <Route path="/requests" element={<Requests />} />
-            <Route path="/homecare" element={<Homecare />} />
-            <Route path="/pharmacy" element={<Pharmacy />} />
-            <Route path="/laboratory" element={<Laboratory />} />
-            <Route path="/corporate" element={<Corporate />} />
-            <Route path="/insurance" element={<Insurance />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/promotions" element={<Promotions />} />
-            <Route path="/promotions/create" element={<CreatePromotion />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/corporate-dashboard" element={<CorporateDashboard />} />
-            <Route path="/lab-dashboard" element={<LabDashboard />} />
-            <Route path="/pharmacy-dashboard" element={<PharmacyDashboard />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
+            <Route path="/login" element={<Login />} />
+            <Route 
+              path="/*" 
+              element={
+                <ProtectedRoute>
+                  <Layout>
+                    <Routes>
+                      <Route path="/" element={<Dashboard />} />
+                      <Route path="/users" element={<Users />} />
+                      <Route path="/roles" element={<Roles />} />
+                      <Route path="/customers" element={<Customers />} />
+                      <Route path="/doctors" element={<Doctors />} />
+                      <Route path="/medical-staff" element={<MedicalStaff />} />
+                      <Route path="/healthcare" element={<Healthcare />} />
+                      <Route path="/orders" element={<Orders />} />
+                      <Route path="/orders/:id" element={<OrderDetails />} />
+                      <Route path="/requests" element={<Requests />} />
+                      <Route path="/homecare" element={<Homecare />} />
+                      <Route path="/pharmacy" element={<Pharmacy />} />
+                      <Route path="/laboratory" element={<Laboratory />} />
+                      <Route path="/corporate" element={<Corporate />} />
+                      <Route path="/insurance" element={<Insurance />} />
+                      <Route path="/products" element={<Products />} />
+                      <Route path="/pricing" element={<Pricing />} />
+                      <Route path="/promotions" element={<Promotions />} />
+                      <Route path="/promotions/create" element={<CreatePromotion />} />
+                      <Route path="/settings" element={<Settings />} />
+                      <Route path="/corporate-dashboard" element={<CorporateDashboard />} />
+                      <Route path="/lab-dashboard" element={<LabDashboard />} />
+                      <Route path="/pharmacy-dashboard" element={<PharmacyDashboard />} />
+                      <Route path="/insurance-corporate-dashboard" element={<InsuranceCorporateDashboard />} />
+                      <Route path="*" element={<NotFound />} />
+                    </Routes>
+                  </Layout>
+                </ProtectedRoute>
+              } 
+            />
           </Routes>
-        </Layout>
+        </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
